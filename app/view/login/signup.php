@@ -1,5 +1,5 @@
 <?php
-require_once 'controller/login_control/signup_controller.php';
+require_once __DIR__. '/../../controller/login_control/signup_controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -99,6 +99,6 @@ require_once 'controller/login_control/signup_controller.php';
     </div>
   </section> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="/view/js/script.js"></script>
+  <script src="view/js/script.js"></script>
 </body>
 </html>

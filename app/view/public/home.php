@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controller/posts_control/post_controller.php';
+require_once __DIR__. '/../../controller/posts_control/post_controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ require_once 'controller/posts_control/post_controller.php';
             <div class="comment-section">
               <button class="comment_button" data-post-id="<?= $row['id'] ?>"><i class="fa fa-comment" aria-hidden="true"></i></button>
               &ensp;
-              <?= $row['like_count'] ?>
+              0
 
               <div class="comment-field hidden">
                 <input type="text" placeholder="Write a comment..." class="comment_input">

@@ -1,6 +1,6 @@
 <?php
-require_once 'controller/login_control/login_controller.php';
-require_once 'controller/login_control/config.php';
+require_once __DIR__. '/../../controller/login_control/login_controller.php';
+require_once __DIR__. '/../../controller/login_control/config.php';
 ?>
 
 <!doctype html>

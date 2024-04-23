@@ -1,7 +1,7 @@
 <?php
 
 require_once './model/query.php';
-require_once './controller/login_control/send_otp.php';
+require_once './controller/login_control/email_process.php';
 
 session_start();
 if (isset($_SESSION["data"])) {
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email'])) {
     $expiry = date("Y-m-d H:i:s", time() + 60 * 5);
     $dbQueries->updateResetToken($email, $token_hash, $expiry);
 
-    $otpSender = new SendOtp();
+    $otpSender = new EmailProcess();
     $otpSender->sendEmail($email, $token_hash);
   } 
   else {

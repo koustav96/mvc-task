@@ -1,6 +1,6 @@
 <?php
 
-require './model/query.php';
+require_once __DIR__. '/../../model/query.php';
 
 session_start();
 if (isset($_SESSION["data"])) {
@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
     ?>
     <script type="text/javascript">alert("Invalid Credentials !!");</script>
     <?php
-  } 
+  }
   else {
     $_SESSION["data"] = true;
     $_SESSION['email'] = $mailId;

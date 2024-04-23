@@ -1,5 +1,6 @@
 <?php
-require_once 'controller/posts_control/forgot_password_controller.php';
+require_once __DIR__. '/../../controller/posts_control/forgot_password_controller.php';
+
 ?>
 
 <!DOCTYPE html>

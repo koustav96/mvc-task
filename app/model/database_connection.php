@@ -1,5 +1,6 @@
 <?php
-require 'core/cred.php';
+
+require_once __DIR__. '/../core/cred.php';
 
 class DatabaseConnection
 {

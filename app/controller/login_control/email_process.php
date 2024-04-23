@@ -3,11 +3,10 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../../vendor/autoload.php';
-require '../../core/cred.php';
+require_once(__DIR__ . '/../../vendor/autoload.php');
+require_once(__DIR__ . '/../../core/cred.php');
 
-class EmailProcess
-{
+class EmailProcess {
   private $mail;
   public function __construct()
   {
@@ -35,6 +34,18 @@ class EmailProcess
     try {
       $this->mail->send();
     } catch (Exception $e) {
+      echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
+    }
+  }
+  public function sendEmail(string $recipientEmail, string $token_hash): void
+  {
+    $this->configureMail($recipientEmail);
+    $this->mail->Subject = 'Reset Password';
+    $this->mail->Body =  "Click <a href='http://mysocial.com/new_password?token=$token_hash'>here</a> to reset your password.";
+    try {
+      $this->mail->send();
+    } 
+    catch (Exception $e) {
       echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
     }
   }
