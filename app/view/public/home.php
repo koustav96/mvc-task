@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__. '/../../controller/posts_control/post_controller.php';
+require_once __DIR__. '/../../controller/posts_control/home_controller.php';
 ?>
 
 <!DOCTYPE html>

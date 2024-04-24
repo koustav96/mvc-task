@@ -8,15 +8,14 @@ if (isset($_SESSION["data"])) {
   exit();
 }
 
+$message = '';
 if (isset($_POST['submit'])) {
   $mailId = $_POST['mailId'];
   $password = $_POST['password'];
 
   $dbQueries = new Queries();
   if (!$dbQueries->authenticateUser($mailId, $password)) {
-    ?>
-    <script type="text/javascript">alert("Invalid Credentials !!");</script>
-    <?php
+    $message = 'Invalid Credentials !!';
   }
   else {
     $_SESSION["data"] = true;

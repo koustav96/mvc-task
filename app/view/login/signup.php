@@ -94,6 +94,9 @@ require_once __DIR__. '/../../controller/login_control/signup_controller.php';
               <input type="submit"  name="submit" value="Signup">
             </div>
           </form>
+          <div id="warning">
+            <?= $message ?>
+          </div>
         </div>
       </div>
     </div>

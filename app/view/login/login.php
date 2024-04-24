@@ -40,6 +40,9 @@ require_once __DIR__. '/../../controller/login_control/config.php';
             <input type="submit" name="submit" value="Login">
           </div>
           </form>
+          <div id="warning">
+            <?= $message ?>
+          </div>
         </div>
       </div>
     </div>

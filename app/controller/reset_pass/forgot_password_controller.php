@@ -8,6 +8,7 @@ if (isset($_SESSION["data"])) {
   header("location: /home");
   exit();
 }
+$message = '';
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email'])) {
   $email = $_POST['email'];
   $dbQueries = new Queries();
@@ -19,10 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email'])) {
 
     $otpSender = new EmailProcess();
     $otpSender->sendEmail($email, $token_hash);
-  } 
+    $message = "Reset link is sent on your mail !!";
+  }
   else {
-    ?>
-    <script type="text/javascript"> alert ("Your email is not registered with our database !!")</script>
-    <?php
+    $message = "Your email is not registered with our database !!";
   }
 }

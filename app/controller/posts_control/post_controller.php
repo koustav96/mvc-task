@@ -6,7 +6,6 @@ if (!isset($_SESSION["email"])) {
   exit();
 }
 $dbQueries = new Queries();
-$data = $dbQueries->loadPost(0, 5);
 
 if (isset($_POST['submit'])) {
   if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name']) && empty($_POST['caption'])) {

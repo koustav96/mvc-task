@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__. '/../../controller/posts_control/forgot_password_controller.php';
 
+require_once __DIR__. '/../../controller/reset_pass/forgot_password_controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ require_once __DIR__. '/../../controller/posts_control/forgot_password_controlle
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forgot Password</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/view/css/reset.css">
 </head>
 
 <body>
@@ -22,6 +22,9 @@ require_once __DIR__. '/../../controller/posts_control/forgot_password_controlle
 
       <input type="submit" value="Submit">
     </form>
+    <div>
+      <?= $message ?>
+    </div>
   </div>
 </body>
 </html>

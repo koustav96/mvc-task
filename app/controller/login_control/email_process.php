@@ -33,7 +33,8 @@ class EmailProcess {
     $this->mail->Body =  "Your OTP is $otp.";
     try {
       $this->mail->send();
-    } catch (Exception $e) {
+    } 
+    catch (Exception $e) {
       echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
     }
   }

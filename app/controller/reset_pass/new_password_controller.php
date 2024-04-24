@@ -7,6 +7,7 @@ if (isset($_SESSION["data"])) {
 }
 require_once './model/query.php';
 
+$message = '';
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if (isset($_POST['password']) && isset($_GET['token'])) {
     $password = $_POST['password'];
@@ -14,21 +15,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $dbQueries = new Queries();
 
     if (!$dbQueries->validateToken($token)) {
-      ?>
-      <script type="text/javascript">alert("Invalid token or token expired!!");</script>
-      <?php
+      $message = 'Invalid token or token expired!!';
     } 
     else {
       $result = $dbQueries->changePassword($password, $token);
       if ($result) {
-        ?>
-        <script type="text/javascript">alert("Password changed, Now you can LogIn !!");</script>
-        <?php
+        $message = 'Password changed, Now you can LogIn !!';
       } 
       else {
-        ?>
-        <script type="text/javascript">alert("Password not changed !!");</script>
-        <?php
+        $message = 'Password not changed !!';
       }
     }
   }
