@@ -30,7 +30,6 @@ if (isset($code)) {
       $ex_arr = explode('.', $id_token);
       $payload_encrypted = $ex_arr[1];
       $payload = json_decode(base64_decode($payload_encrypted), true);
-
       $email = $payload['email'];
       $name = $payload['name'];
 
@@ -38,7 +37,6 @@ if (isset($code)) {
       $dbQueries = new Queries();
       $dbQueries->checkUser($email);
       if ($dbQueries->checkUser($email)) {
-
         $_SESSION['data'] = true;
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $name;

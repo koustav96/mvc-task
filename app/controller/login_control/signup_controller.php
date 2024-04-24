@@ -1,14 +1,12 @@
 <?php
 
 require_once __DIR__. '/../../model/query.php';
-
 session_start();
 // If the session is set then redirect to homepage.
 if (isset($_SESSION["data"])) {
   header("location: /home");
   exit();
 }
-
 $message = '';
 // If submit button is clicked.
 if(isset($_POST['submit'])) {

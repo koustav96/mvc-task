@@ -6,7 +6,6 @@ require_once __DIR__. '/../../controller/posts_control/home_controller.php';
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,6 @@ require_once __DIR__. '/../../controller/posts_control/home_controller.php';
   <script src="https://kit.fontawesome.com/7566e30b80.js" crossorigin="anonymous"></script>
   <title>MySocial</title>
 </head>
-
 <body>
   <!-- Div for header elements. -->
   <div class="header">
@@ -66,7 +64,6 @@ require_once __DIR__. '/../../controller/posts_control/home_controller.php';
               <button class="comment_button" data-post-id="<?= $row['id'] ?>"><i class="fa fa-comment" aria-hidden="true"></i></button>
               &ensp;
               0
-
               <div class="comment-field hidden">
                 <input type="text" placeholder="Write a comment..." class="comment_input">
                 <button class="post_comment_button">Post</button>

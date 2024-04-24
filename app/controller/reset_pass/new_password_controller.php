@@ -1,14 +1,12 @@
 <?php
 
 session_start();
-
 // If the session is set then redirect to homepage.
 if (isset($_SESSION["data"])) {
   header("location: /home");
   exit();
 }
 require_once './model/query.php';
-
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if (isset($_POST['password']) && isset($_GET['token'])) {

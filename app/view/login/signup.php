@@ -105,8 +105,8 @@ require_once __DIR__. '/../../controller/login_control/signup_controller.php';
               <!-- Submit button. -->
               <input type="submit"  name="submit" value="Signup">
             </div>
-
           </form>
+
           <!-- Display error message if any. -->
           <div id="warning">
             <?= $message ?>

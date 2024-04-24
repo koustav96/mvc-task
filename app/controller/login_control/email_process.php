@@ -7,11 +7,11 @@ require_once(__DIR__ . '/../../vendor/autoload.php');
 require_once(__DIR__ . '/../../core/cred.php');
 
 /**
- * A class to send mail for different purpose.
+ * A class to send mail for various purpose.
  */
 class EmailProcess {
   /**
-   * Variable to act as a object of PHPMailer
+   * Variable to act as a object of PHPMailer.
    *
    * @var object
    */

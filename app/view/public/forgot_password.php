@@ -5,14 +5,12 @@ require_once __DIR__. '/../../controller/reset_pass/forgot_password_controller.p
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forgot Password</title>
   <link rel="stylesheet" href="/view/css/reset.css">
 </head>
-
 <body>
   <div class="container">
     <form action="" method="post">
