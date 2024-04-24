@@ -2,8 +2,10 @@
 require_once 'model/query.php';
 
 $dbQueries = new Queries();
+// Fetch specific number of posts from database.
 $data = $dbQueries->loadPost($_POST['offset'], $_POST['limit']);
 
+// Split the post data and show in the feed.
 foreach ($data as $row) {
 
   $output = '';
@@ -14,7 +16,8 @@ foreach ($data as $row) {
     $output .= '<p class="caption">' . $row['caption'] . ' </p>';
   }
   if (!empty($row['img'])) {
-    $output .= '<div class="image-container"><img src="data:image;base64,' . base64_encode($row['img']) . '" class="post-image">
+    $output .= '<div class="image-container">
+              <img src="data:image;base64,' . base64_encode($row['img']) . '" class="post-image">
             </div>';
   }
   $output .= '<div class="logos">

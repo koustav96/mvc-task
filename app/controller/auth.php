@@ -43,7 +43,8 @@ if (isset($code)) {
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $name;
         header('location: /home');
-      } else {
+      } 
+      else {
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $name;
         $_SESSION['data'] = true;

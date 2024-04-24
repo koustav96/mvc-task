@@ -18,10 +18,14 @@ require_once __DIR__. '/../../controller/reset_pass/forgot_password_controller.p
     <form action="" method="post">
 
       <label for="email">Enter your email:</label>
+      <!-- Input field for mailID. -->
       <input type="email" name="email" required>
 
+      <!-- Submit button. -->
       <input type="submit" value="Submit">
     </form>
+
+    <!-- Display error message if any. -->
     <div>
       <?= $message ?>
     </div>

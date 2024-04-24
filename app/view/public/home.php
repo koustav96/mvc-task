@@ -16,6 +16,7 @@ require_once __DIR__. '/../../controller/posts_control/home_controller.php';
 </head>
 
 <body>
+  <!-- Div for header elements. -->
   <div class="header">
     <div id="head">
       <a href="/home" style="font-size:x-large;">MySocial</a>
@@ -25,6 +26,8 @@ require_once __DIR__. '/../../controller/posts_control/home_controller.php';
       <a href="/controller/login_control/logout.php">Log out</a>
     </div>
   </div>
+
+  <!-- Container for the page. -->
   <div class="container">
     <form action="" method="post" enctype="multipart/form-data" class="form">
       <label for="caption"></label>
@@ -39,6 +42,8 @@ require_once __DIR__. '/../../controller/posts_control/home_controller.php';
         </div>
       </div>
     </form>
+
+    <!-- Container for each post. -->
     <div id="postsContainer">
       <?php foreach ($data as $row) : ?>
         <div class="post">
@@ -78,6 +83,7 @@ require_once __DIR__. '/../../controller/posts_control/home_controller.php';
       <?php endforeach; ?>
     </div>
 
+    <!-- Button to load rest posts. -->
     <button id="loadMore">Load More</button>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
