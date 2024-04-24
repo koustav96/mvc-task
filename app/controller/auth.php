@@ -1,8 +1,8 @@
 <?php
 
-require_once './vendor/autoload.php';
-require_once 'controller/login_control/config.php';
-require_once './model/query.php';
+require_once __DIR__. '/../vendor/autoload.php';
+require_once __DIR__. '/login_control/config.php';
+require_once __DIR__.'/../model/query.php';
 
 use GuzzleHttp\Client;
 

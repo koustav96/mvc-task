@@ -33,7 +33,7 @@ switch ($request) {
     require __DIR__ . '/controller/posts_control/like_controller.php';
     break;
   case str_starts_with($request,'/auth'):
-    require __DIR__ . '/auth.php';
+    require __DIR__ . '/controller/auth.php';
     break;
   default:
     echo"<h1>404 Not Found</h1>";
