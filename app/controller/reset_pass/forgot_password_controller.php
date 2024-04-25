@@ -1,7 +1,7 @@
 <?php
 
-require_once './model/query.php';
-require_once './controller/login_control/email_process.php';
+require_once './model/Queries.php';
+require_once './controller/login_control/EmailProcess.php';
 
 // If the session is set then redirect to homepage.
 session_start();

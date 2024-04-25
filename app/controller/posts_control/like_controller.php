@@ -1,6 +1,6 @@
 <?php
 
-require_once './model/query.php';
+require_once './model/Queries.php';
 session_start();
 $dbQueries = new Queries();
 if (isset($_POST['post_id'])) {

@@ -6,7 +6,7 @@ if (isset($_SESSION["data"])) {
   header("location: /home");
   exit();
 }
-require_once './model/query.php';
+require_once './model/Queries.php';
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if (isset($_POST['password']) && isset($_GET['token'])) {

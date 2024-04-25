@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__. '/email_process.php';
+require_once __DIR__. '/EmailProcess.php';
 
 session_start();
 $mail = new EmailProcess();

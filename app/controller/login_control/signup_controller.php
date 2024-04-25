@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__. '/../../model/query.php';
+require_once __DIR__. '/../../model/Queries.php';
 session_start();
 // If the session is set then redirect to homepage.
 if (isset($_SESSION["data"])) {

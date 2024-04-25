@@ -1,5 +1,5 @@
 <?php
-require_once './model/query.php';
+require_once './model/Queries.php';
 session_start();
 // If the session is not set then redirect to login page.
 if (!isset($_SESSION["email"])) {

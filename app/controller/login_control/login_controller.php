@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__. '/../../model/query.php';
+require_once __DIR__. '/../../model/Queries.php';
 
 session_start();
 // If the session is set then redirect to homepage.
@@ -13,6 +13,7 @@ $message = '';
 if (isset($_POST['submit'])) {
   $mailId = $_POST['mailId'];
   $password = $_POST['password'];
+
   $dbQueries = new Queries();
   // Checks if the mailId and password is present in the database.
   if (!$dbQueries->authenticateUser($mailId, $password)) {

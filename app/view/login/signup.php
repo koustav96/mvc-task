@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__. '/../../controller/login_control/signup_controller.php';
 ?>
 

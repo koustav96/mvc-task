@@ -60,6 +60,7 @@ require_once __DIR__. '/../../controller/posts_control/home_controller.php';
               &ensp;
               <?= $row['like_count'] ?>
             </div>
+            
             <div class="comment-section">
               <button class="comment_button" data-post-id="<?= $row['id'] ?>"><i class="fa fa-comment" aria-hidden="true"></i></button>
               &ensp;
@@ -79,7 +80,6 @@ require_once __DIR__. '/../../controller/posts_control/home_controller.php';
         </div>
       <?php endforeach; ?>
     </div>
-
     <!-- Button to load rest posts. -->
     <button id="loadMore">Load More</button>
   </div>

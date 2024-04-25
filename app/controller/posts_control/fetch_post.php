@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/query.php';
+require_once 'model/Queries.php';
 $dbQueries = new Queries();
 // Fetch specific number of posts from database.
 $data = $dbQueries->loadPost($_POST['offset'], $_POST['limit']);
@@ -8,7 +8,7 @@ $data = $dbQueries->loadPost($_POST['offset'], $_POST['limit']);
 // Split the post data and show in the feed.
 foreach ($data as $row) {
   $output = '';
-  $output .=  '<div class="post">
+  $output .= '<div class="post">
           <p class="name">' . $row['name'] . '</p>';
 
   if (!empty($row['caption'])) {

@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__. "/database_connection.php");
+require_once(__DIR__. "/DatabaseConnection.php");
 /**
  * Class Queries
  * 
@@ -10,7 +10,7 @@ class Queries {
   /**
    * Database connection object.
    *
-   * @var \PDO
+   * @var \PDO 
    */
   private $conn;
   /**
@@ -24,9 +24,10 @@ class Queries {
   /**
    * Check if user exists.
    *
-   * @param string $mail 
+   * @param string $mail
    * The email of the user to check.
-   * @return array|false 
+   * 
+   * @return array|bool
    * The user data if found, false otherwise.
    */
   public function checkUser($mail) {
@@ -45,6 +46,7 @@ class Queries {
    * The email of the user.
    * @param string $password 
    * The password of the user.
+   * 
    * @return bool 
    * True if insertion successful, false otherwise.
    */
@@ -60,7 +62,8 @@ class Queries {
    * The email of the user.
    * @param string $password 
    * The password of the user.
-   * @return string|false 
+   * 
+   * @return string|bool
    * The name of the user if authentication successful, false otherwise.
    */
   public function authenticateUser($mailId, $password) {
@@ -84,7 +87,8 @@ class Queries {
    * The caption of the post.
    * @param string $img 
    * The image associated with the post.
-   * @return bool 
+   * 
+   * @return bool
    * True if post creation successful, false otherwise.
    */
   public function createPost($email, $caption, $img) {
@@ -99,6 +103,7 @@ class Queries {
    * The starting index of the posts to load.
    * @param int $para2 
    * The number of posts to load.
+   * 
    * @return array 
    * An array of post data including name, caption, image, like count, and post ID.
    */
@@ -120,6 +125,7 @@ class Queries {
    * The hashed reset token.
    * @param string $expiry 
    * The expiry time of the token.
+   * 
    * @return bool 
    * True if the update was successful, false otherwise.
    */
@@ -136,7 +142,8 @@ class Queries {
    *
    * @param string $token 
    * The reset token to validate.
-   * @return array|false 
+   * 
+   * @return array|bool
    * The user data associated with the token if valid, false otherwise.
    */
   public function validateToken($token) {
@@ -153,6 +160,7 @@ class Queries {
    * The new password to set.
    * @param string $token 
    * The reset token identifying the user.
+   * 
    * @return bool 
    * True if the password was successfully updated, false otherwise.
    */
@@ -169,6 +177,7 @@ class Queries {
    * The ID of the post to like or unlike.
    * @param int $user_id 
    * The ID of the user performing the action.
+   * 
    * @return array 
    * The result of the action.
    */

@@ -2,7 +2,7 @@
 
 require_once __DIR__. '/../vendor/autoload.php';
 require_once __DIR__. '/login_control/config.php';
-require_once __DIR__.'/../model/query.php';
+require_once __DIR__.'/../model/Queries.php';
 
 use GuzzleHttp\Client;
 // Create a new Guzzle HTTP client.
