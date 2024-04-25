@@ -29,14 +29,14 @@ $(document).ready(function () {
   /**
    * A function to update the likes or dislikes.
    */
-  $("#postsContainer").on("click", ".like_button", function () {
-    var post_id = $(this).data("post-id");
-    console.log(post_id);
+  $("#postsContainer").on("click", ".likeButton", function () {
+    var postId = $(this).data("postId");
+    console.log(postId);
     $.ajax({
       url: "/like",
       type: "POST",
       data: {
-        'post_id': post_id,
+        'post_id': postId,
       },
       success: function () {
         window.location.href ="/home";

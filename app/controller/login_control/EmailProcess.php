@@ -87,14 +87,14 @@ class EmailProcess {
    *
    * @param string $recipientEmail
    *  User's mailID.
-   * @param integer $token_hash
+   * @param integer $tokenHash
    *  Unique token hash.
    * 
    * @return void
    */
-  public function sendEmail(string $recipientEmail, string $token_hash) {
+  public function sendEmail(string $recipientEmail, string $tokenHash) {
     $sub = 'Reset Password';
-    $body = "Click <a href='http://mysocial.com/new_password?token=$token_hash'>here</a> to reset your password.";
+    $body = "Click <a href='http://mysocial.com/new_password?token=$tokenHash'>here</a> to reset your password.";
     $this->configureMail($recipientEmail);
     $this->setContents($sub, $body);
     try {

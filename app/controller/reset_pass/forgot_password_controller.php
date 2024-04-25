@@ -18,15 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email'])) {
 
     // Generates random token.
     $token = bin2hex(random_bytes(16));
-    $token_hash = password_hash($token, PASSWORD_DEFAULT);
+    $tokenHash = password_hash($token, PASSWORD_DEFAULT);
     // Set the token expiry time.
     $expiry = date("Y-m-d H:i:s", time() + 60 * 5);
     // Update the database with the token_hash and expiry.
-    $dbQueries->updateResetToken($email, $token_hash, $expiry);
+    $dbQueries->updateResetToken($email, $tokenHash, $expiry);
 
     // Send mail to the user with the reset link.
     $otpSender = new EmailProcess();
-    $otpSender->sendEmail($email, $token_hash);
+    $otpSender->sendEmail($email, $tokenHash);
     $message = "Reset link is sent on your mail !!";
   }
   else {

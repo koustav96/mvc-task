@@ -50,24 +50,24 @@ require_once __DIR__. '/../../controller/posts_control/home_controller.php';
             <p class="caption"><?= $row['caption'] ?></p>
           <?php endif; ?>
           <?php if (!empty($row['img'])) : ?>
-            <div class="image-container">
+            <div class="imageContainer">
               <?= '<img src="data:image;base64,' . base64_encode($row['img']) . '" class="post-image">'; ?>
             </div>
           <?php endif; ?>
           <div class="logos">
-            <div class="like_count">
-              <button class="like_button" data-post-id="<?= $row['id'] ?>"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+            <div class="likeCount">
+              <button class="likeButton" data-post-id="<?= $row['id'] ?>"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
               &ensp;
               <?= $row['like_count'] ?>
             </div>
             
-            <div class="comment-section">
-              <button class="comment_button" data-post-id="<?= $row['id'] ?>"><i class="fa fa-comment" aria-hidden="true"></i></button>
+            <div class="commentSection">
+              <button class="commentButton" data-post-id="<?= $row['id'] ?>"><i class="fa fa-comment" aria-hidden="true"></i></button>
               &ensp;
               0
               <div class="comment-field hidden">
                 <input type="text" placeholder="Write a comment..." class="comment_input">
-                <button class="post_comment_button">Post</button>
+                <button class="postCommentButton">Post</button>
               </div>
 
             </div>

@@ -125,32 +125,32 @@ body {
   margin-bottom: 10px;
 }
 
-.post .image-container {
+.post .imageContainer {
   text-align: center;
 }
 
-.post .post-image {
+.post .postImage {
   border-radius: 15px;
   width: 300px;
   height: 300px;
   object-fit: cover;
   margin: auto;
 }
-.like_button {
+.likeButton {
   background-color: transparent;
   border: none;
 }
-.like_count {
+.likeCount {
   display: flex;
   align-items: center;
 }
 
-.comment-section {
+.commentSection {
   display: flex;
   align-items: center;
 }
 
-.comment_button {
+.commentButton {
   position: relative;
   border: none;
   background-color: transparent;
@@ -172,7 +172,7 @@ body {
   font-size: 16px;
 }
 
-.post_comment_button {
+.postCommentButton {
   background-color: #007bff;
   width: 150px;
   height: 50px;
