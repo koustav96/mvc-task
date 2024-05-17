@@ -9,7 +9,7 @@ if (isset($_SESSION["data"])) {
 }
 $message = '';
 // If submit button is clicked.
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
   $name = $_POST['name'];
   $mailId = $_POST['mailId'];
   // Hash the password.
@@ -17,16 +17,16 @@ if(isset($_POST['submit'])) {
   $dbQueries = new Queries();
 
   // Checks if the mailId and password is present in the database.
-  if(!$dbQueries->checkUser($mailId)) {
+  if (!$dbQueries->checkUser($mailId)) {
 
     // Checks if the mailId is changed after generating otp.
-    if($_SESSION['sentMail'] == $_POST['mailId']) {
+    if ($_SESSION['sentMail'] == $_POST['mailId']) {
 
       // Matches the session otp with user submitted otp.
       if ($_SESSION['otp'] == $_POST['otp']) {
         
         // Store userdata into database.
-        if($dbQueries->insertUser($name, $mailId, $password)) {
+        if ($dbQueries->insertUser($name, $mailId, $password)) {
           $message = 'Data submitted successfully !! Now you can Login !!';
         }
       }

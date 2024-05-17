@@ -27,13 +27,13 @@ if (isset($code)) {
       ]
     ]);
     // Decode the response and extract ID token.
-    $arr = json_decode($response->getBody(), true);
+    $arr = json_decode($response->getBody(), TRUE);
     $id_token = $arr['id_token'];
     // Extract payload from ID token.
     try {
       $ex_arr = explode('.', $id_token);
       $payload_encrypted = $ex_arr[1];
-      $payload = json_decode(base64_decode($payload_encrypted), true);
+      $payload = json_decode(base64_decode($payload_encrypted), TRUE);
       $email = $payload['email'];
       $name = $payload['name'];
 
@@ -43,7 +43,7 @@ if (isset($code)) {
       $dbQueries->checkUser($email);
       // If user exists, set session variables and redirect to homepage.
       if ($dbQueries->checkUser($email)) {
-        $_SESSION['data'] = true;
+        $_SESSION['data'] = TRUE;
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $name;
         header('location: /home');
@@ -52,16 +52,18 @@ if (isset($code)) {
       else {
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $name;
-        $_SESSION['data'] = true;
+        $_SESSION['data'] = TRUE;
         $dbQueries->insertUser($name, $email, NULL);
         header('location:/home');
       }
-      // Catch any exceptions during payload extraction.
-    } catch (Exception $e) {
+    } 
+    // Catch any exceptions during payload extraction.
+    catch (Exception $e) {
       echo $e->getMessage();
     }
-    // Catch any exceptions during access token request.
-  } catch (Exception $e) {
+  } 
+  // Catch any exceptions during access token request.
+  catch (Exception $e) {
     echo $e->getMessage();
   }
 }

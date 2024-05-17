@@ -1,9 +1,8 @@
 <?php
 
 require_once(__DIR__. "/DatabaseConnection.php");
-/**
- * Class Queries
- * 
+
+/** 
  * Class to handle database queries.
  */
 class Queries {
@@ -25,10 +24,10 @@ class Queries {
    * Check if user exists.
    *
    * @param string $mail
-   * The email of the user to check.
+   *   The email of the user to check.
    * 
    * @return array|bool
-   * The user data if found, false otherwise.
+   *   The user data if found, FALSE otherwise.
    */
   public function checkUser($mail) {
     $chcekQuery = "SELECT * FROM userdata WHERE mail_id = ?";
@@ -48,7 +47,7 @@ class Queries {
    * The password of the user.
    * 
    * @return bool 
-   * True if insertion successful, false otherwise.
+   * True if insertion successful, FALSE otherwise.
    */
   public function insertUser($name, $mailId, $password) {
     $insertQuery = "INSERT INTO userdata (name, mail_id, password) VALUES (?, ?, ?)";
@@ -64,19 +63,17 @@ class Queries {
    * The password of the user.
    * 
    * @return string|bool
-   * The name of the user if authentication successful, false otherwise.
+   * The name of the user if authentication successful, FALSE otherwise.
    */
   public function authenticateUser($mailId, $password) {
     $query = "SELECT * FROM userdata WHERE mail_id = ?";
     $stmt = $this->conn->prepare($query);
     $stmt->execute([$mailId]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($result !== false) {
-      if (password_verify($password, $result['password'])) {
-        return $result['name'];
-      }
+    if (($result !== FALSE) && (password_verify($password, $result['password']))) {
+      return $result['name'];
     }
-    return false;
+    return FALSE;
   }
   /**
    * Store the new post data in the database.
@@ -89,7 +86,7 @@ class Queries {
    * The image associated with the post.
    * 
    * @return bool
-   * True if post creation successful, false otherwise.
+   * True if post creation successful, FALSE otherwise.
    */
   public function createPost($email, $caption, $img) {
     $insertQuery = "INSERT INTO posts (mail_id, caption, img) VALUES (?, ?, ?)";
@@ -127,7 +124,7 @@ class Queries {
    * The expiry time of the token.
    * 
    * @return bool 
-   * True if the update was successful, false otherwise.
+   * True if the update was successful, FALSE otherwise.
    */
   public function updateResetToken($email, $token_hash, $expiry) {
     $updateQuery = "UPDATE userdata SET Reset_token_hash = :token_hash, Token_expiry_time = :expiry WHERE mail_id = :email";
@@ -144,7 +141,7 @@ class Queries {
    * The reset token to validate.
    * 
    * @return array|bool
-   * The user data associated with the token if valid, false otherwise.
+   * The user data associated with the token if valid, FALSE otherwise.
    */
   public function validateToken($token) {
     $query = "SELECT * FROM userdata WHERE Reset_token_hash = ?";
@@ -162,7 +159,7 @@ class Queries {
    * The reset token identifying the user.
    * 
    * @return bool 
-   * True if the password was successfully updated, false otherwise.
+   * True if the password was successfully updated, FALSE otherwise.
    */
   public function changePassword($password, $token) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -202,8 +199,6 @@ class Queries {
       $insertQuery = "INSERT INTO likes (post_id, user_id) VALUES (?, ?)";
       $stmt = $this->conn->prepare($insertQuery);
       $stmt->execute([$post_id, $user_id]);
-
-      return $result;
     } 
     // If the user has liked the post, perform unlike.
     else {
@@ -220,7 +215,7 @@ class Queries {
       $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
       $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
       $stmt->execute();
-      return $result;
     }
+    return $result;
   }
 }

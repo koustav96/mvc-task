@@ -1,10 +1,10 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
 require_once(__DIR__ . '/../../vendor/autoload.php');
 require_once(__DIR__ . '/../../core/Dotenv.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 /**
  * A class to send mail for various purpose.
@@ -20,22 +20,22 @@ class EmailProcess {
    * Constructor to initialize PHPMailer.
    */
   public function __construct() {
-    $this->mail = new PHPMailer(true);
+    $this->mail = new PHPMailer(TRUE);
   }
   /**
    * Function to configure PHPMailer.
-   * 
+   *
    * @param string $email
-   * User's email id.
-   * 
+   *  User's email id.
+   *
    * @return void
    */
-  public function configureMail($email) {
+  public function configureMail(string $email) {
     // Creating instance of Dotenv class.
     new Dotenv();
     // Server settings.
     $this->mail->isSMTP();
-    $this->mail->SMTPAuth = true;
+    $this->mail->SMTPAuth = TRUE;
     $this->mail->Host = 'smtp.gmail.com';
     $this->mail->Username = $_ENV['senderEmail'];
     $this->mail->Password = $_ENV['senderPassword'];
@@ -44,8 +44,8 @@ class EmailProcess {
     // Adding sender's email address.
     $this->mail->setFrom($_ENV['senderEmail']);
     $this->mail->addAddress($email);
-    $this->mail->isHTML(true);
-  }  
+    $this->mail->isHTML(TRUE);
+  }
   /**
    * Function to set mail subject and body.
    *
@@ -53,7 +53,7 @@ class EmailProcess {
    * Set email subject.
    * @param  string $body
    * Set email body.
-   * 
+   *
    * @return void
    */
   public function setContents(string $subject, string $body) {
@@ -67,7 +67,7 @@ class EmailProcess {
    *  User's mailID.
    * @param integer $otp
    *  Generated OTP.
-   * 
+   *
    * @return void
    */
   public function sendOTP(string $recipientEmail, string $otp) {
@@ -77,7 +77,7 @@ class EmailProcess {
     $this->setContents($sub, $body);
     try {
       $this->mail->send();
-    } 
+    }
     catch (Exception $e) {
       echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
     }
@@ -89,7 +89,7 @@ class EmailProcess {
    *  User's mailID.
    * @param integer $tokenHash
    *  Unique token hash.
-   * 
+   *
    * @return void
    */
   public function sendEmail(string $recipientEmail, string $tokenHash) {
@@ -99,7 +99,7 @@ class EmailProcess {
     $this->setContents($sub, $body);
     try {
       $this->mail->send();
-    } 
+    }
     catch (Exception $e) {
       echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
     }

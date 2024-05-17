@@ -31,7 +31,6 @@ $(document).ready(function () {
    */
   $("#postsContainer").on("click", ".likeButton", function () {
     var postId = $(this).data("postId");
-    console.log(postId);
     $.ajax({
       url: "/like",
       type: "POST",
@@ -55,7 +54,7 @@ $(document).ready(function () {
         data: {
           email: email
         },
-        success: function(response) {
+        success: function() {
           $('#warning').text("OTP is Sent. Check your mail !!");
         },  
       });

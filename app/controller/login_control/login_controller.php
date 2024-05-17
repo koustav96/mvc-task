@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
   }
   // Sets the mailId and name in the session and redirect to homepage.
   else {
-    $_SESSION["data"] = true;
+    $_SESSION["data"] = TRUE;
     $_SESSION['email'] = $mailId;
     $_SESSION['name'] = $dbQueries->authenticateUser($mailId, $password);
     header('location: /home');
