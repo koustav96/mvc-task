@@ -13,3 +13,4 @@ $redirect_uri = "http://mysocial.com/auth";
 // Defining scope.
 $scope = rawurlencode('openid profile email');
 $url = "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=$client_id&redirect_uri=$redirect_uri&state=foobar&scope=$scope";
+
